@@ -13,7 +13,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 import { Route, Routes, Link } from "react-router-dom"
 
-import {  Home, Error, SignIn, Calculator } from './pages'
+import {  Home, Error, SignIn, Calculator, Dashboard, Reports, Operations, Settings } from './pages'
 
 // import { API_URL } from './Constants';
 
@@ -48,7 +48,9 @@ function App() {
     <div style={{ display: "flex", height: "100vh" }}>
         <Sidebar className="app">
             <Menu>
-                <MenuItem className="menu1" icon={<MenuRoundedIcon />}>
+                <MenuItem className="menu1" icon={<MenuRoundedIcon />}
+                  component={<Link to="/" className="link" />}
+                >
                     <h2>Enerjeet</h2>
                 </MenuItem>
                 <MenuItem
@@ -58,25 +60,44 @@ function App() {
                     Calculator 
                 </MenuItem>
                 <MenuItem
-                    component={<Link to="/home" className="link" />}
+                    component={<Link to="/dashboard" className="link" />}
                     icon={<DashboardIcon />}
                 > 
                     Dashboard
                 </MenuItem>
-                <MenuItem icon={<ReportsIcon />}> Reports </MenuItem>
-                <MenuItem icon={<OperationsIcon />}> Operations </MenuItem>
-                <MenuItem icon={<SettingsIcon />}> Settings </MenuItem>
-                {/* <SubMenu label="Charts">
-                    <MenuItem> Timeline Chart </MenuItem>
-                    <MenuItem> Bubble Chart </MenuItem>
-                </SubMenu> */}
+                <MenuItem
+                    component={<Link to="/reports" className="link" />}
+                     icon={<ReportsIcon />}
+                >
+                   Reports
+                </MenuItem>
+                <MenuItem 
+                    component={<Link to="/operations" className="link" />}
+                    icon={<OperationsIcon />}
+                > 
+                  Operations 
+                </MenuItem>
+                <MenuItem 
+                  component={<Link to="/settings" className="link" />}
+                  icon={<SettingsIcon />}
+                > 
+                  Settings
+                </MenuItem>
             </Menu>
         </Sidebar>
 
         <section>
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/calculator" element={<Calculator />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/reports" element={<Reports />} />
+            <Route path="/operations" element={<Operations />} />
+            <Route path="/settings" element={<Settings />} />
+
+            <Route path="/signin" element={<SignIn />} />
+
+            <Route path="*" element={<Error />} />
           </Routes>
         </section>
 

@@ -3,7 +3,7 @@
 function Calculator(){
     return (
         <>
-            Welcome
+            Calculator
         </>
     )
 }
