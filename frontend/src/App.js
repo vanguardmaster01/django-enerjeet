@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+import React, {useState, useEffect} from 'react'
+
+import { API_URL } from './Constants';
+
 
 function App() {
+
+  const [songs, setSongs] = useState([])
+
+  useEffect(() => {
+    axios
+      .get(API_URL)
+      .then(data => setSongs(data.data))
+    }, [])
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul className="list-group list-group-flush border-top-0">
+          {
+            songs.map(song => (
+              <li key={song.pk} className='list-group d-flex'>
+                <span>asdf</span>
+              </li>
+            ))
+          }
+      </ul>
     </div>
   );
 }
