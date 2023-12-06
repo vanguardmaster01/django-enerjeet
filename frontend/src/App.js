@@ -15,6 +15,8 @@ import { Route, Routes, Link } from "react-router-dom"
 
 import {  Home, Error, SignIn, Calculator, Dashboard, Reports, Operations, Settings } from './pages'
 
+import SideBarSpan from "./components/SideBarSpan"
+
 // import { API_URL } from './Constants';
 
 
@@ -48,7 +50,8 @@ function App() {
     <div style={{ display: "flex", height: "100vh" }}>
         <Sidebar className="app">
             <Menu>
-                <MenuItem className="menu1" icon={<MenuRoundedIcon />}
+                <MenuItem className="menu1" 
+                // icon={<MenuRoundedIcon />}
                   component={<Link to="/" className="link" />}
                 >
                     <h2>Enerjeet</h2>
@@ -57,31 +60,31 @@ function App() {
                     component={<Link to="/calculator" className="link" />}
                     icon={<CalculatorIcon />}
                 > 
-                    Calculator 
+                  <SideBarSpan label="Calculator" />
                 </MenuItem>
                 <MenuItem
                     component={<Link to="/dashboard" className="link" />}
                     icon={<DashboardIcon />}
                 > 
-                    Dashboard
+                  <SideBarSpan label="Dashboard" />
                 </MenuItem>
                 <MenuItem
                     component={<Link to="/reports" className="link" />}
                      icon={<ReportsIcon />}
                 >
-                   Reports
+                   <SideBarSpan label="Reports" />
                 </MenuItem>
                 <MenuItem 
                     component={<Link to="/operations" className="link" />}
                     icon={<OperationsIcon />}
                 > 
-                  Operations 
+                  <SideBarSpan label="Operations" />
                 </MenuItem>
                 <MenuItem 
                   component={<Link to="/settings" className="link" />}
                   icon={<SettingsIcon />}
                 > 
-                  Settings
+                  <SideBarSpan label="Settings" />
                 </MenuItem>
             </Menu>
         </Sidebar>

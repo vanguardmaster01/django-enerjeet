@@ -10,3 +10,5 @@
 # Django db
 /backend/db.sqlite3
 **/__pycache__/*
+
+/frontend/*
